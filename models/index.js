@@ -12,6 +12,12 @@ const sequelize = new Sequelize(env.DB_NAME, env.DB_USER, env.DB_PASSWORD, {
         acquire: env.DB_ACQUIRE_POOL,
         idle: env.DB_IDLE_POOL
     },
+    dialectOptions: {
+        ssl: {
+          require: true,
+          rejectUnauthorized: false
+        }
+    }
 });
 
 const siswa = require('./siswa.model')(sequelize, Sequelize);

@@ -1,5 +1,6 @@
 require('dotenv').config();
 const express = require('express')
+const cors = require('cors')
 const db = require('./models')
 const kelas = require('./routes/kelas.route')
 const siswa = require('./routes/siswa.route')
@@ -14,6 +15,7 @@ app.get('/', (_, res)=> {
 })
 
 app.use(express.json());
+app.use(cors())
 
 db.sequelize.sync(); //
 
